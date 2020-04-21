@@ -35,7 +35,17 @@ const instagram = {
     await loginButton[0].click();
 
     await instagram.page.waitFor(`img[alt="Foto do perfil de ${username}"]`);
+
     await instagram.page.waitFor(3000);
+
+    //Get "Not now" notifications button
+    const nowNowButton = await instagram.page.$x(
+      '//button[contains(., "Agora não")]' //same as button[text()="Agora não"]
+    );
+
+    if (nowNowButton) await nowNowButton[0].click();
+
+    await instagram.page.waitFor(1000);
   },
 
   likeTagsProcess: async (tags = []) => {
@@ -63,9 +73,8 @@ const instagram = {
         await instagram.page.waitFor(2000);
 
         // Like the post
-        if (await instagram.page.$('svg[aria-label="Curtir"]')) {
+        if (await instagram.page.$('svg[aria-label="Curtir"]'))
           await instagram.page.click('svg[aria-label="Curtir"]');
-        }
 
         await instagram.page.waitFor(1000);
 
