@@ -2,7 +2,7 @@
   "name": "likergram",
   "version": "1.0.0",
   "description": "Bot that automatically likes photos on Instagram.",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "@gabriel21henrique",
   "license": "This bot was created for study purposes only. Feel free to try it out.",
   "dependencies": {
